@@ -1,13 +1,21 @@
 SampleApp::Application.routes.draw do
- # root to :'home'
- # match '/static_pages/help',to: 'static_pages/help', via:'get'
- # match '/static_pages/about' ,to:'static_pages/about',via:'get'
-  # match '/static_pages/contact',to:'static_page/contact',via:'get'
-   match "/static_pages/home" => "static_pages#home", :via => :get
-   match "/static_pages/help" => "static_pages#help", :via => :get
-   match "/static_pages/about" => "static_pages#about", :via => :get  
+#  get "users/new"
+# root to: '#home'
+ # match '/help',to: '#help', via:'get'
+ # match '/about' ,to:'#about',via:'get'
+ #  match '/contact',to:'#contact',via:'get'
+#   match "/static_pages/home" => "static_pages#home", :via => :get
+ #  match "/static_pages/help" => "static_pages#help", :via => :get
+  # match "/static_pages/about" => "static_pages#about", :via => :get  
+#about "/static_pages/about", :controller => "static_pages", :action => "show", :id => "about"
+#home "/static_pages/home", :controller => "static_pages", :action => "show", :id => "home"
+#help "/static_pages/help", :controller => "static_pages", :action => "show", :id => "help"
 
-
+get 'static_pages/' => 'static_pages#home'
+ get '/static_pages/help' => 'static_pages#help'
+ get '/static_pages/about' => 'static_pages#about'
+ get '/static_pages/contact' => 'static_pages#contact'
+ get '/signup' => 'users#new'
 
 # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
