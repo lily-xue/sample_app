@@ -1,6 +1,6 @@
 SampleApp::Application.routes.draw do
-  get "relationships/create"
-  get "relationships/destroy"
+#  get "relationships/create"
+ # get "relationships/destroy"
    resources :users do
     member do
       get :following, :followers
@@ -11,17 +11,9 @@ SampleApp::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   
 
-
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
  root to: 'static_pages#home'
- # match '/help',to: '#help', via:'get'
- # match '/about' ,to:'#about',via:'get'
- #  match '/contact',to:'#contact',via:'get'
-#   match "/static_pages/home" => "static_pages#home", :via => :get
- #  match "/static_pages/help" => "static_pages#help", :via => :get
-  # match "/static_pages/about" => "static_pages#about", :via => :get  
-#about "/static_pages/about", :controller => "static_pages", :action => "show", :id => "about"
-#home "/static_pages/home", :controller => "static_pages", :action => "show", :id => "home"
-#help "/static_pages/help", :controller => "static_pages", :action => "show", :id => "help"
 
 get 'static_pages/' => 'static_pages#home'
  get '/static_pages/help' => 'static_pages#help'
@@ -29,8 +21,8 @@ get 'static_pages/' => 'static_pages#home'
  get '/static_pages/contact' => 'static_pages#contact'
  get '/signup' => 'users#new'
 
-match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+#  match '/signin',  to: 'sessions#new',         via: 'get'
+ # match '/signout', to: 'sessions#destroy',     via: 'delete'
 
 # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
