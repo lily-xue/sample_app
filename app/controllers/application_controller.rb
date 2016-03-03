@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
   end
   def contact
   end
+  protect_from_forgery
+  include SessionsHelper
 
-  protect_from_forgery with: :exception
+ # protect_from_forgery with: :exception
 end
