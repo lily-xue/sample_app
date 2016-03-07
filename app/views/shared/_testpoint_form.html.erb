@@ -1,0 +1,27 @@
+ <%= form_for (@testpoint) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+<%= f.label :id %>
+<%= f.text_area :id %>
+
+<%= f.label :firsttheme %>
+<%= f.text_area :firsttheme %>
+
+<%= f.label :secondtheme %>
+<%= f.text_area :secondtheme %>
+
+<%= f.label :thirdtheme %>
+<%= f.text_area :thirtheme %>
+
+<%= f.label :测试点 %>    
+<%= f.text_area :testpoint, placeholder: "发布新微博..." %>
+
+<%= f.label :step %>
+<%= f.text_area :step %>
+
+<%= f.label :result %>
+<%= f.text_area :result %>
+
+  </div>
+  <%= f.submit "发布", class: "btn btn-large btn-primary" %>
+<% end %>
