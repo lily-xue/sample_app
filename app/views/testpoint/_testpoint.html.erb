@@ -4,7 +4,7 @@
     <%= time_ago_in_words(point.created_at) %> 前发布.
   </span>
   <% if current_user?(testpoint.user) %>
-    <%= link_to "删除", micropost, method: :delete,
+    <%= link_to "删除", testpoint, method: :delete,
                                      data: { confirm: "确定删除?" },
                                      title: testpoint.point %>
   <% end %>

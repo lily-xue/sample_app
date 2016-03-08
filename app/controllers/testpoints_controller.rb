@@ -26,7 +26,7 @@ end
   private
 
     def testpoint_params
-      params.require(:testpoint).permit(:point,:id,:firsttheme,:secondtheme,:thirdtheme,:step,:result)
+      params.require(:testpoint).permit(:point,:step)
     end
 
     def correct_user
