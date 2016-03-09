@@ -3,11 +3,9 @@
     <aside class="span4">
       <section>
         <%= render 'shared/user_info' %> 
-#添加用户信息
       </section>
       <section>
         <%= render 'shared/stats' %>
-#添加用户状态
       </section>
       <section>
         <%= render 'shared/micropost_form' %>
@@ -15,6 +13,11 @@
      <section>
       <%= render 'shared/testpoint_form' %>
      </section>
+
+   <section>
+  <%= render  'shared/feed_testpoint' %>
+   </section>
+
     </aside>
     <div class="span8">
       <h3>发布动态</h3>
@@ -22,7 +25,6 @@
     </div>
   </div>
 <% else %>
-#用户信息
 
 
 <div class="center hero-unit">
