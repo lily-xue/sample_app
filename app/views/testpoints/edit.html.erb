@@ -1,7 +1,9 @@
- <%= form_for (@testpoint) do |f| %>
+ 
+<% provide(:title, "Edit testpoint") %>
+<%= form_for (@testpoint) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-<%= f.label :测试点 %>    
+<%= f.label :测试点 %>
 <%= f.text_area :point, placeholder: "填写测试目的..." %>
 <%= f.label :测试步骤 %>
 <%= f.text_area :step %>
@@ -9,3 +11,4 @@
 
   <%= f.submit "发布", class: "btn btn-large btn-primary" %>
 <% end %>
+

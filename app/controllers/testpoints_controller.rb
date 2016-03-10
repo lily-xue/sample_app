@@ -1,5 +1,5 @@
 class TestpointsController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :signed_in_user, only: [:create, :destroy,:edit,:update]
   before_action :correct_user,   only: :destroy
 def new 
 @testpoint=Testpoint.new
@@ -15,6 +15,25 @@ end
     else
       @feed_testpoint_items = []
       render 'static_pages/home'
+    end
+  end
+
+ def edit
+  # if signed_in?
+   #   @micropost  = current_user.microposts.build
+    #  @feed_items = current_user.feed.paginate(page: params[:page])
+     @testpoint = current_user.testpoints.build
+    #@testpoints = current_user.testpoints.paginate(page: params[:page])
+     # @feed_testpoint_items = current_user.feed_testpoint.paginate(page: params[:page])
+    #end
+  end
+
+  def update
+    if @testpoint.update_attributes(testpoint_params)
+      flash[:success] = "更新案例成功"
+      redirect_to @testpoint
+    else
+      render 'edit'
     end
   end
 

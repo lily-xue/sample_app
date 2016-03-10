@@ -1,12 +1,20 @@
  <% if @feed_testpoint_items.any? %>
   <table border='1'>
  <tr>
+<th>ID</th>
 <th>测试点</th>
 <th>测试步骤</th>
-<th>创建时间</th>
 <th>创建人</th>
+
+<th>编辑</th>
+<th>删除</th>
+
+<th>创建时间</th>
     <%= render partial: 'shared/feed_testpoint_item', collection: @feed_testpoint_items %>
+
 </tr>  
+
 </table>
+
   <%= will_paginate @feed_testpoint_items %>
 <% end %>
