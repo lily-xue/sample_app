@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308024507) do
+ActiveRecord::Schema.define(version: 20160311063023) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160308024507) do
     t.string   "step"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "level",      default: "2级（普通案例）"
   end
 
   create_table "users", force: true do |t|

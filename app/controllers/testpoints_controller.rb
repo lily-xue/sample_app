@@ -46,7 +46,7 @@ end
   private
 
     def testpoint_params
-      params.require(:testpoint).permit(:point,:step)
+      params.require(:testpoint).permit(:point,:step,:level)
     end
 
     def correct_user

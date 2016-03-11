@@ -5,7 +5,8 @@
 <%= f.text_area :point, placeholder: "填写测试目的..." %>
 <%= f.label :测试步骤 %>
 <%= f.text_area :step %>
-
+<%= f.label :案例等级 %>
+<%= f.select :level, Testpoint::LEVELS, :prompt => "Select a payment method" %>
 
   <%= f.submit "发布", class: "btn btn-large btn-primary" %>
 <% end %>
