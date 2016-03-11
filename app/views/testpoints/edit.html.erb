@@ -2,7 +2,7 @@
 <% provide(:title, "Edit testpoint") %>
 <%= form_for (@testpoint) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-
+<h1>编辑案例</h1>
 <%= f.label :测试点 %>
 <%= f.text_area :point, placeholder: "填写测试目的..." %>
 <%= f.label :测试步骤 %>

@@ -29,7 +29,8 @@
   end
 
 def feed_testpoint
-Testpoint.where("user_id = ?", id)
+#Testpoint.where("user_id = ?", id)
+Testpoint
 end
 
 

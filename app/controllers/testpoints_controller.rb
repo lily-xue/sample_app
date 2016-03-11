@@ -22,16 +22,17 @@ end
   # if signed_in?
    #   @micropost  = current_user.microposts.build
     #  @feed_items = current_user.feed.paginate(page: params[:page])
-     @testpoint = current_user.testpoints.build
+     @testpoint = current_user.testpoints.find_by(id: params[:id])
     #@testpoints = current_user.testpoints.paginate(page: params[:page])
      # @feed_testpoint_items = current_user.feed_testpoint.paginate(page: params[:page])
     #end
   end
 
   def update
+     @testpoint = current_user.testpoints.find_by(id: params[:id])
     if @testpoint.update_attributes(testpoint_params)
       flash[:success] = "更新案例成功"
-      redirect_to @testpoint
+      redirect_to root_url
     else
       render 'edit'
     end
