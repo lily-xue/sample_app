@@ -19,7 +19,7 @@ end
   end
 
  def edit
-  # if signed_in?
+   #if correct_user?
    #   @micropost  = current_user.microposts.build
     #  @feed_items = current_user.feed.paginate(page: params[:page])
      @testpoint = current_user.testpoints.find_by(id: params[:id])

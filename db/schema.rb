@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311063023) do
+ActiveRecord::Schema.define(version: 20160408104924) do
+
+  create_table "areas", force: true do |t|
+    t.string   "name"
+    t.string   "testpoint_id"
+    t.string   "integer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "areas", ["testpoint_id"], name: "index_areas_on_testpoint_id"
 
   create_table "microposts", force: true do |t|
     t.string   "content"
