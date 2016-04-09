@@ -1,0 +1,4 @@
+<% if @area %>
+<%= render partial: 'shared/area_item', collection: @areas %>
+<%= will_paginate @areas %>
+<% end %>

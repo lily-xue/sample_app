@@ -1,0 +1,16 @@
+
+<% provide(:title, "Edit area") %>
+<h1>修改模块信息</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+   <%= form_for(Area.new) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :模块名称 %>
+      <%= f.text_field :name %>
+    
+  <%= f.submit "保存修改", class: "btn btn-large btn-primary" %>
+   <% end %>
+</div>
+</div>

@@ -1,31 +1,29 @@
 
-class UsersController < ApplicationController
+class AreasController < ApplicationController
   before_action :signed_in_user,
                 only: [:index, :edit, :update, :destroy, :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
-    @user = User.new
+   # @areas = Area.paginate(page: params[:page])
+    @areas = Area.paginate(page: params[:page], :per_page => 20, :order => 'name')
   end
 
   def show
-    @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
-    @testpoints = @user.testpoints.paginate(page: params[:page])
+   @area = Area.find(params[:id])
+   # @microposts = @user.microposts.paginate(page: params[:page])
+   # @testpoints = @user.testpoints.paginate(page: params[:page])
   end
 
   def new
-    @user = User.new
+    @area = Area.new
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      sign_in @user
-      flash[:success] = "#{@user.name},欢迎你!"
-      redirect_to @user
+    @area = Area.new(area_params)
+    if @area.save
+      redirect_to @area
     else
       render 'new'
     end
@@ -35,18 +33,18 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
+    if @area.update_attributes(area_params)
       flash[:success] = "更新成功"
-      redirect_to @user
+      redirect_to @area
     else
       render 'edit'
     end
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    Area.find(params[:id]).destroy
     flash[:success] = "用户删除成功"
-    redirect_to users_url
+    redirect_to areas_url
   end
 
   def following
@@ -65,9 +63,8 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+    def area_params
+      params.require(:area).permit(:name)
     end
 
     # Before filters

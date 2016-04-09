@@ -3,7 +3,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
-
+$Lightblue: #006ccc;
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -115,6 +115,23 @@ footer {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+
+
+
+/*add new css*/
+#side{
+float:left;
+padding-left:1em;
+padding-top:1em;
+padding-bottom:1em;
+width:20em;
+background:$Lightblue;
+}
+#side a{
+color:#fff;
+font-size:medium;
 }
 
 /* sidebar */
