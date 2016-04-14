@@ -15,7 +15,7 @@
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }
-
+  has_many :areas,dependent: :destroy
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
@@ -33,6 +33,10 @@ def feed_testpoint
 Testpoint
 end
 
+def area_new
+Area
+#Testpoint
+end
 
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)

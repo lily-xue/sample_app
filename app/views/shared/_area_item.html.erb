@@ -1,2 +1,11 @@
-
-fjh
+ <li id="<%= area_item.id %>">
+    <span class="user">
+      <!--%= link_to area_item.name, area_item %-->
+    </span>
+    <span class="content"><%=link_to area_item.name,area_item %>
+<%= link_to "编辑",edit_area_path(area_item)%>    
+<%= link_to "删除", area_item, method: :delete,
+                                     data: { confirm: "确定删除模块?" },
+                                     title: area_item.name %>
+    </span>
+</li>

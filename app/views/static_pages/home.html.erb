@@ -1,4 +1,9 @@
 <% if signed_in? %>
+<div id="columns">
+<div id="side">
+<%= render 'shared/area_new'%>
+</div>
+</div>
   <div class="row">
     <aside class="span4">
       <section>
@@ -7,26 +12,25 @@
       <section>
         <%= render 'shared/stats' %>
       </section>
+<!--发布微博-->      
       <section>
         <%= render 'shared/micropost_form' %>
       </section>
-
+<!--发布测试点-->
      <section>
       <%= render 'shared/testpoint_form' %>
      </section>
-
+<!--显示微博动态-->
     </aside>
     <div class="span8">
       <h3>发布动态</h3>
       <%= render 'shared/feed' %>
     </div>
   </div>
-
+<!--实时动态刷新案例-->
    <section>
   <%= render  'shared/feed_testpoint' %>
    </section>
-
-
 
 
 <% else %>

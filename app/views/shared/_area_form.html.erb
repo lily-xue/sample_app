@@ -1,0 +1,9 @@
+
+ <%= form_for (@area) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :模块名称 %>    
+<%= f.text_area :name, placeholder: "填写模块名..." %>
+
+  <%= f.submit "提交", class: "btn btn-large btn-primary" %>
+<% end %>

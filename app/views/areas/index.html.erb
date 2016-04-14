@@ -1,15 +1,20 @@
-
 <% provide(:title, 'All areas') %>
 <h1>所有模块</h1>
 
-<%= will_paginate %>
+<div class="row">
+<div class="span6 offset3">
+
+     <section>
+      <%= render 'shared/area_form' %>
+     </section>
+
+
+</div>
+</div>
+
+
 
 <ul class="users">
-  <%= render @areas %>
+<%= render 'shared/area_new'%>
 </ul>
 
-<%= will_paginate %>
-
-<li>
-<%= render 'shared/area_new'%>
-</li>
