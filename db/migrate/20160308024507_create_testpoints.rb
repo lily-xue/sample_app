@@ -4,9 +4,9 @@ class CreateTestpoints < ActiveRecord::Migration
       t.integer :user_id
       t.string :point
       t.string :step
-      t.string :level
+#      t.string :level
       t.timestamps
     end
-  add_index :testpoint,[:user_id]
+  add_index :testpoints,[:user_id]
   end
 end

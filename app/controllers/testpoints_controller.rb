@@ -53,4 +53,7 @@ end
       @testpoint = current_user.testpoints.find_by(id: params[:id])
       redirect_to root_url if @testpoint.nil?
     end
+    def micropost_params
+      params.require(:micropost).permit(:content)
+    end
 end

@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20160408104924) do
     t.string   "level",      default: "2级（普通案例）"
   end
 
+  add_index "testpoints", ["user_id"], name: "index_testpoints_on_user_id"
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160408104924) do
     t.boolean  "admin",           default: false
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end
