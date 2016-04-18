@@ -4,8 +4,10 @@
     </span>
     <span class="content"><%=link_to area_item.name,area_item %>
 <%= link_to "编辑",edit_area_path(area_item)%>    
+<!--% if current_user.admin?%-->
 <%= link_to "删除", area_item, method: :delete,
                                      data: { confirm: "确定删除模块?" },
                                      title: area_item.name %>
+<!--% end %-->
     </span>
 </li>

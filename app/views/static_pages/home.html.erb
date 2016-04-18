@@ -1,6 +1,7 @@
 <% if signed_in? %>
 <div id="columns">
 <div id="side">
+<%= link_to "新建模块",new_area_path%>    
 <%= render 'shared/area_new'%>
 </div>
 </div>
@@ -9,13 +10,13 @@
       <section>
         <%= render 'shared/user_info' %> 
       </section>
-      <section>
-        <%= render 'shared/stats' %>
-      </section>
+      <!--section-->
+        <!--%= render 'shared/stats' %-->
+      <!--/section-->
 <!--发布微博-->      
-      <section>
-        <%= render 'shared/micropost_form' %>
-      </section>
+      <!--section-->
+        <!--%= render 'shared/micropost_form' %-->
+      <!--/section-->
 <!--发布测试点-->
      <section>
       <%= render 'shared/testpoint_form' %>
@@ -23,8 +24,8 @@
 <!--显示微博动态-->
     </aside>
     <div class="span8">
-      <h3>发布动态</h3>
-      <%= render 'shared/feed' %>
+      <!--h3>发布动态</h3-->
+      <!--%= render 'shared/feed' %-->
     </div>
   </div>
 <!--实时动态刷新案例-->

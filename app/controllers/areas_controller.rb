@@ -32,12 +32,14 @@ class AreasController < ApplicationController
   end
 
   def edit
+     @area = Area.find_by(id: params[:id])
   end
 
   def update
-    if @area.update_attributes(area_params)
+   @area = Area.find(params[:id])
+if @area.update_attributes(area_params)
       flash[:success] = "更新成功"
-      redirect_to @area
+      redirect_to root_url
     else
       render 'edit'
     end
