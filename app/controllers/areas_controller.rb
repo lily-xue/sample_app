@@ -20,12 +20,13 @@ class AreasController < ApplicationController
 
   def new
     @area = Area.new
+   @area_items = current_user.area_new.paginate(page:params[:page]) 
   end
 
   def create
     @area = Area.new(area_params)
     if @area.save
-      redirect_to @area
+      redirect_to root_url
     else
       render 'new'
     end

@@ -1,4 +1,6 @@
-<% if @area %>
-<%= render partial: 'shared/area_item', collection: @areas %>
-<%= will_paginate @areas %>
-<% end %>
+<div id="columns">
+<div id="side">
+<%= link_to "新建模块",new_area_path%>    
+<%= render 'shared/area_new'%>
+</div>
+</div>
