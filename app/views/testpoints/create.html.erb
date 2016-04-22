@@ -9,6 +9,7 @@
 <%= f.label :案例等级 %>
 <%= f.select :level, Testpoint::LEVELS, :prompt => "Select a payment method" %>
 
+<%= collection_select(:testpoint,:area_id,Area.all,:id,:name)%>
 
   <%= f.submit "发布", class: "btn btn-large btn-primary" %>
 <% end %>

@@ -34,6 +34,7 @@ Testpoint
 end
 
 def area_new
+#Area.where("user_id= ?",id)
 Area
 #Testpoint
 end

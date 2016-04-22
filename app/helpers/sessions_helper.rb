@@ -19,6 +19,10 @@ module SessionsHelper
     @current_user ||= User.find_by(remember_token: remember_token)
   end
 
+def current_area
+
+    @current_area ||= Area.find_by(id: params[:id])
+end
   def current_user?(user)
     user == current_user
   end
