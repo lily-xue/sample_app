@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408104924) do
+ActiveRecord::Schema.define(version: 20160422072643) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -48,8 +48,10 @@ ActiveRecord::Schema.define(version: 20160408104924) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "level",      default: "2级（普通案例）"
+    t.integer  "area_id"
   end
 
+  add_index "testpoints", ["user_id", "area_id", "id"], name: "index_testpoints_on_user_id_and_area_id_and_id", unique: true
   add_index "testpoints", ["user_id"], name: "index_testpoints_on_user_id"
 
   create_table "users", force: true do |t|

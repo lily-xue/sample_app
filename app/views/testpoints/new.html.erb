@@ -1,0 +1,15 @@
+ 
+<% provide(:title, "新建测试点") %>
+<%= form_for (@testpoint) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+<h1>新建案例</h1>
+<%= f.label :测试点 %>
+<%= f.text_area :point, placeholder: "填写测试目的..." %>
+<%= f.label :测试步骤 %>
+<%= f.text_area :step %>
+<%= f.label :案例等级 %>
+<%= f.select :level, Testpoint::LEVELS, :prompt => "Select a payment method" %>
+
+  <%= f.submit "发布", class: "btn btn-large btn-primary" %>
+<% end %>
+

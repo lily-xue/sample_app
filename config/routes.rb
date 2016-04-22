@@ -9,7 +9,7 @@ SampleApp::Application.routes.draw do
   resources :sessions,      only: [:new, :create, :destroy]
   resources :microposts,    only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  resources :testpoints,only: [:create,:destroy,:edit,:update]
+  resources :testpoints
   resources :areas
 
   match '/signin',  to: 'sessions#new',         via: 'get'

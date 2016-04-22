@@ -11,10 +11,8 @@ end
     @testpoint = current_user.testpoints.build(testpoint_params)
     if @testpoint.save
       flash[:success] = "提交案例成功!"
-      redirect_to root_url
     else
       @feed_testpoint_items = []
-      render 'static_pages/home'
     end
   end
 

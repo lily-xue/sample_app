@@ -1,0 +1,14 @@
+class CreateTestrelations < ActiveRecord::Migration
+  def change
+    create_table :testrelations do |t|
+      t.integer :owner_id
+      t.integer :test_id
+
+      t.timestamps
+    end
+add_index :testrelations,:owner_id
+add_index :testrelations,:test_id
+add_index :testrelations,[:owner_id,:test_id],unique:true
+
+  end
+end
