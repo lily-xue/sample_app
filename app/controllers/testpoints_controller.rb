@@ -2,15 +2,18 @@ class TestpointsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy,:edit,:update]
   before_action :correct_user,   only: :destroy
 def new 
-@testpoint=Testpoint.new
+@area = Area.find(params[:area_id])    
+@testpoint = @area.testpoints.build(testpoint_params)
 end
 
 
 
   def create
-    @testpoint = current_user.testpoints.build(testpoint_params)
+@area = Area.find(params[:area_id])    
+@testpoint = @area.testpoints.build(testpoint_params)
     if @testpoint.save
       flash[:success] = "提交案例成功!"
+     # redirect_to @area.testpoints
     else
       @feed_testpoint_items = []
     end

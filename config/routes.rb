@@ -9,10 +9,11 @@ SampleApp::Application.routes.draw do
   resources :sessions,      only: [:new, :create, :destroy]
   resources :microposts,    only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
-  resources :testpoints
-  resources :areas
 
-  match '/signin',  to: 'sessions#new',         via: 'get'
+  resources :areas do
+  resources :testpoints
+  end
+match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
  root to: 'static_pages#home'
 

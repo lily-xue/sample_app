@@ -1,13 +1,36 @@
 <tr>
-<td> <%= testpoint.point %></td>
-  
-<td><%= time_ago_in_words(point.created_at) %> 前发布.</td>
- 
-<td> <% if current_user?(testpoint.user) %>
-    <%= link_to "删除", testpoint, method: :delete,
-                                     data: { confirm: "确定删除?" },
-                                     title: testpoint.point %>
-  <% end %>
+<td><%= testpoint.id %>
 </td>
 
+<td><%= testpoint.level %>
+</td>
+<td><%= testpoint.point %>
+</td>
+
+<td><%= testpoint.step %> </td>
+<td> 
+      <%= link_to testpoint.user.name, testpoint.user %>
+</td>
+<td>
+    <%if current_user?(testpoint.user) %>
+    <%= link_to "编辑", edit_testpoint_path(testpoint)%>
+                                     
+<% end %>
+</td>
+
+<td>
+  <% if current_user?(testpoint.user) %>
+    <%= link_to "删除", testpoint, method: :delete,
+                                     data: { confirm: "确定删除案例?" },
+                                     title: testpoint.point %>
+<% end %>
+</td>
+
+<td>
+ <%= testpoint.updated_at.strftime('%Y-%m-%d') %>
+</td>
+
+<td>
+ <%= testpoint.created_at.strftime('%Y-%m-%d') %>
+</td>
 </tr>

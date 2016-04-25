@@ -5,6 +5,7 @@ class CreateTestpoints < ActiveRecord::Migration
       t.string :point
       t.string :step
 #      t.string :level
+      t.references :area,index:true
       t.timestamps
     end
   add_index :testpoints,[:user_id]

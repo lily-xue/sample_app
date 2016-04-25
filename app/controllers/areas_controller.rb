@@ -14,6 +14,9 @@ class AreasController < ApplicationController
 
   def show
    @area = Area.find(params[:id])
+#@testpoint=@area.testpoints.create(testpoint_params)     
+# @feed_testpoint_items = current_user.feed_testpoint.paginate(page: params[:page])
+     
    # @microposts = @user.microposts.paginate(page: params[:page])
    # @testpoints = @user.testpoints.paginate(page: params[:page])
   end

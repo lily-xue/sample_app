@@ -6,8 +6,10 @@
       <h1>
         <%= @area.name %>
         <%=render @area %>
-       <%= link_to "新建案例",new_testpoint_path%>
       </h1>
-    </section>
+<h1>新建案例</h1>
+<%= render @area.testpoints%>   
+<%= render "testpoints/form"%>
+</section>
   </aside>
 </div>
