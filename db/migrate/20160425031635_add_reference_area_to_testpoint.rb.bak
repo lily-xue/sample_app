@@ -1,0 +1,5 @@
+class AddReferenceAreaToTestpoint < ActiveRecord::Migration
+  def change
+    add_column :testpoints, :area, :reference
+  end
+end

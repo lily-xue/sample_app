@@ -12,7 +12,19 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+<ul class="nav nav-tabs">
+<li class="active">
+<%= link_to "首页",static_pages_path%>
+<li>
+<%= link_to "H5",static_pages_H5_path%>
+</li>
+<li>
+<%= link_to "IOS"%>
+
+
 
 <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
@@ -20,6 +32,11 @@
 <%= yield %>
 <%= render 'layouts/footer' %>
  <%= debug(params) if Rails.env.development? %>
+</li>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </body>
 </html>

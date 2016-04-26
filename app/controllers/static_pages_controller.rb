@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
    if signed_in?
       @micropost  = current_user.microposts.build
       @feed_items = current_user.feed.paginate(page: params[:page])
-      @testpoint = current_user.testpoints.build
+     # @testpoint = current_user.testpoints.build
       @feed_testpoint_items = current_user.feed_testpoint.paginate(page: params[:page])
    @area_items = current_user.area_new.paginate(page:params[:page]) 
     end
@@ -19,4 +19,6 @@ class StaticPagesController < ApplicationController
   end
   def contact
   end
+  def H5
+end
 end

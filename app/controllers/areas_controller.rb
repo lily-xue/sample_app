@@ -14,9 +14,8 @@ class AreasController < ApplicationController
 
   def show
    @area = Area.find(params[:id])
-      @feed_testpoint_items = current_user.feed_testpoint.paginate(page: params[:page])
    # @microposts = @user.microposts.paginate(page: params[:page])
-   # @testpoints = @user.testpoints.paginate(page: params[:page])
+  #  @testpoints = Testpoint.paginate(page: params[:page])
   end
 
   def new
@@ -49,7 +48,7 @@ if @area.update_attributes(area_params)
 
   def destroy
     Area.find(params[:id]).destroy
-    flash[:success] = "用户删除成功"
+    flash[:success] = "模块删除成功"
     redirect_to areas_url
   end
 
@@ -82,5 +81,8 @@ if @area.update_attributes(area_params)
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+    def testpoint_params
+      params.require(:testpoint).permit(:point,:step,:level)
     end
   end

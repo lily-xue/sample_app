@@ -1,18 +1,17 @@
+
+
 <% if signed_in? %>
+<ul class="nav nav-list">
+<li class="nav-header">
+</li>
 <div id="columns">
 <div id="side">
 <%= link_to "新建模块",new_area_path%>    
 <%= render 'shared/area_new'%>
-</div>
-</div>
-  <div class="row">
-    <aside class="span4">
-      <section>
-        <%= render 'shared/user_info' %> 
-      </section>
-      <section>
-        <%= render 'shared/stats' %>
-      </section>
+<%= render 'shared/user_info' %> 
+      <!--section-->
+        <!--%= render 'shared/stats' %-->
+      <!--/section-->
 <!--发布微博-->      
       <!--section-->
         <!--%= render 'shared/micropost_form' %-->
@@ -22,20 +21,12 @@
       <!--%= render 'shared/testpoint_form' %-->
      <!--/section-->
 <!--显示微博动态-->
-    </aside>
-    <div class="span8">
       <!--h3>发布动态</h3-->
       <!--%= render 'shared/feed' %-->
-    </div>
-  </div>
 <!--实时动态刷新案例-->
-   <section>
-  <%= render  'shared/feed_testpoint' %>
-   </section>
-
-
+  <!--%= render  'shared/feed_testpoint' %-->
+</ul>
 <% else %>
-
 
 <div class="center hero-unit">
 <h1>欢迎来到海那边工作管理系统</h1>
@@ -49,4 +40,3 @@
 
 <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
 <%end%>
-

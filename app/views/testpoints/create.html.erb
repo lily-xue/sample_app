@@ -1,5 +1,5 @@
 <% provide(:title, "新建测试点") %>
-<%= form_for (@testpoint) do |f| %>
+<%= form_for ([@area,@area.testpoints.build]) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 <h1>新建案例</h1>
 <%= f.label :测试点 %>
