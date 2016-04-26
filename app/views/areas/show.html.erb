@@ -1,15 +1,10 @@
 
 <% provide(:title, @area.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
       <h1>
         <%= @area.name %>
         <%=render @area %>
       </h1>
 <h1>新建案例</h1>
-<%= render @area.testpoints%>   
+<!--%= render @area.testpoints%-->
+<%= render "testpoints/feed_testpoint"%>   
 <%= render "testpoints/form"%>
-</section>
-  </aside>
-</div>

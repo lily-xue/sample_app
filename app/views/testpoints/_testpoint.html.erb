@@ -9,21 +9,16 @@
 
 <td><%= testpoint.step %> </td>
 <td> 
-      <%= link_to testpoint.user.name, testpoint.user %>
 </td>
 <td>
-    <%if current_user?(testpoint.user) %>
-    <%= link_to "编辑", edit_testpoint_path(testpoint)%>
+    <%= link_to "编辑", [:edit,@area,@testpoint]%>
                                      
-<% end %>
 </td>
 
 <td>
-  <% if current_user?(testpoint.user) %>
-    <%= link_to "删除", testpoint, method: :delete,
+    <%= link_to "删除", [testpoint.area,testpoint],method: :delete,
                                      data: { confirm: "确定删除案例?" },
                                      title: testpoint.point %>
-<% end %>
 </td>
 
 <td>

@@ -11,12 +11,14 @@ end
   def create
 @area = Area.find(params[:area_id])    
 @testpoint = @area.testpoints.build(testpoint_params)
+#byebug
     if @testpoint.save
       flash[:success] = "提交案例成功!"
-     # redirect_to @area.testpoints
+     redirect_to @area
     else
-      @feed_testpoint_items = []
-    end
+    #  @feed_testpoint_items = []
+  flash[:error] ="保存失败"
+  end
   end
 
  def edit
