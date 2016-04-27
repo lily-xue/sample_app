@@ -22,6 +22,7 @@ get 'static_pages/' => 'static_pages#home'
  get '/static_pages/about' => 'static_pages#about'
  get '/static_pages/contact' => 'static_pages#contact'
  get '/static_pages/H5' => 'static_pages#H5'
+ get '/static_pages/IOS' => 'static_pages#IOS'
 
  get '/signup' => 'users#new'
 

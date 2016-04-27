@@ -15,6 +15,8 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def IOS
+  end
   def show
   end
   def contact
