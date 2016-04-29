@@ -1,6 +1,6 @@
 class TestpointsController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy,:edit,:update]
-  before_action :correct_user,   only: :destroy
+#  before_action :correct_user,   only: :destroy
 def new 
 @area = Area.find(params[:area_id])    
 @testpoint = @area.testpoints.build(testpoint_params)
@@ -11,7 +11,6 @@ end
   def create
 @area = Area.find(params[:area_id])    
 @testpoint = @area.testpoints.build(testpoint_params)
-#byebug
     if @testpoint.save
       flash[:success] = "提交案例成功!"
      redirect_to @area
@@ -42,8 +41,10 @@ end
   end
 
   def destroy
-    @testpoint.destroy
-    redirect_to root_url
+#    @testpoint.destroy
+@area = Area.find(params[:area_id])    
+@area.testpoints.find(params[:id]).destroy
+   redirect_to @area
   end
 
   private

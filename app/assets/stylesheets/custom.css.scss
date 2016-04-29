@@ -121,11 +121,16 @@ footer {
 
 
 /*add new css*/
+#columns{
+background:#141;
+}
+
+
 #side{
 float:left;
-padding-left:2em;
-padding-top:2em;
-padding-bottom:2em;
+padding-left:1em;
+padding-top:1em;
+padding-bottom:1em;
 width:20em;
 background:$Lightblue;
 }

@@ -2,9 +2,16 @@
 <% provide(:title, @area.name) %>
       <h1>
         <%= @area.name %>
-        <%=render @area %>
+        <!--%=render @area %-->
       </h1>
 <h1>新建案例</h1>
 <!--%= render @area.testpoints%-->
+<div class="row-fluid">
+<div class="col-xs-6 span9">
 <%= render "testpoints/feed_testpoint"%>   
+</div>
+<div class="col-xs-6 span3">
+<div class="new_testpoint">
 <%= render "testpoints/form"%>
+</div>
+</div>
