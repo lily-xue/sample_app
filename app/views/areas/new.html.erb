@@ -1,16 +1,15 @@
-<% provide(:title, '新建模块') %>
-<h1>新建模块</h1>
+<title>新建模块</title>
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@area) do |f| %>
+    <%= form_for(@area,remote: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :模块名称 %>
       <%= f.text_field :name %>
   
       
-    <%= f.submit "提交", class: "btn btn-large btn-primary" %>
+    <%= f.submit "提交", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

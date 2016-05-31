@@ -1,4 +1,7 @@
- <% if @area.testpoints.any? %>
+<% if @area.testpoints.empty? %>
+<h1>没有测试案例</h1>
+<% end %>
+<% if @area.testpoints.any? %>
   <!--table border='1'-->
 <table class="table table-bordered">
  <tr>

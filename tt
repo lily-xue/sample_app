@@ -1,0 +1,11 @@
+
+respond_to do |format|
+if @area.save
+format.html{redirect_to @area,notice:'Area was  successfully created' }
+format.json{render action: 'show' ,status: :created, location: @area }
+format.js
+
+else
+format.html{redirect_to @area,notice:'Area was  successfully created' }
+format.json{render json: @product.errors ,status: :unprocessable }
+format.js

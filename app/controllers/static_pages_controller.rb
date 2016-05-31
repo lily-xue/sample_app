@@ -6,7 +6,8 @@ class StaticPagesController < ApplicationController
      # @testpoint = current_user.testpoints.build
       @feed_testpoint_items = current_user.feed_testpoint.paginate(page: params[:page])
    @area_items = current_user.area_new.paginate(page:params[:page]) 
-    end
+   @area = Area.new 
+   end
   end
 
   def help
@@ -16,6 +17,9 @@ class StaticPagesController < ApplicationController
   end
 
   def IOS
+   # @microposts = @user.microposts.paginate(page: params[:page])
+#@area = Area.all    
+     @testpoint = Testpoint.find_by(id: params[:id])
   end
   def show
   end

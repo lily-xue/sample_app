@@ -1,14 +1,64 @@
-
-
 <% if signed_in? %>
 <ul class="nav nav-list">
 <li class="nav-header">
 </li>
 <div id="columns">
 <div id="side">
-<%= link_to "新建模块",new_area_path%>    
-<%= render 'shared/area_new'%>
-<%= render 'shared/user_info' %> 
+<p>新建模块    
+
+<%= link_to t('.new', :default => t("helpers.links.new")), new_area_path, :class => 'btn btn-primary', data: {toggle: "modal", target: "#modal-container-115652"} %>
+</p>
+			<div id="modal-container-115652" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                              <%= form_for @area, remote: true, :html => { :class => 'form-horizontal', id: "newAreaForm" } do |f| %>
+				<div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">
+					新建模块
+					</h3>
+				</div>
+				<div class="modal-body">
+					<p>
+				 <%= render partial: "shared/area_f",locals: {f: f} %>
+					</p>
+				</div>
+			</div>
+
+                               <%end%> 
+
+
+
+
+
+<div class="modal fade" id="editProductFormModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <%= form_tag "", method: :put, remote: true, data: { type: "json" }, id: "editProductForm", class: "form-horizontal" do %>
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">编辑模块</h4>
+        </div>
+        <div class="modal-body">
+       <div class="alert alert-dismissible alert-danger" id="alert-content">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <div id="msg"></div>
+    <p>hh</p>
+           <div class="form-group">
+            <%= label_tag "area[name]", Area.human_attribute_name("name"), :class => 'control-label' %>
+            <%= text_field_tag "area[name]", "", :class => 'form-control', id: "editProductName", required: true %>
+          </div>
+
+          </div>
+        
+       </div>
+<div class="modal-footer">
+          <%= link_to t('.cancel', :default => t("helpers.links.cancel")), '#', :class => 'btn btn-primary', data: {dismiss: "modal"} %>
+          <%= submit_tag t('.confirm', :default => t("helpers.links.confirm")), :class => 'btn btn-primary', :data => { :"disable-with" => "请稍等..." } %>
+        </div>
+      </div>
+    <% end %>
+</div>
+</div>
+
       <!--section-->
         <!--%= render 'shared/stats' %-->
       <!--/section-->
@@ -25,6 +75,8 @@
       <!--%= render 'shared/feed' %-->
 <!--实时动态刷新案例-->
   <!--%= render  'shared/feed_testpoint' %-->
+<%= render 'shared/area_new'%>
+<!--%= render 'shared/user_info' %--> 
 </ul>
 <% else %>
 
@@ -39,4 +91,18 @@
 </div>
 
 <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+
+
 <%end%>
+<%= content_for :page_javascript do %>
+<%= javascript_include_tag "areas" %>
+<script>
+  $('#modal-container-115652').modal({
+    show: false,
+  })
+  $('#editProductFormModal').modal({
+    show: false,
+  })
+</script>
+<% end %>
+

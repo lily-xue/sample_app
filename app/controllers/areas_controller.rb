@@ -15,14 +15,15 @@ class AreasController < ApplicationController
   def show
    @area = Area.find(params[:id])
    # @microposts = @user.microposts.paginate(page: params[:page])
-  #  @testpoints = Testpoint.paginate(page: params[:page])
+    @testpoint = Testpoint.paginate(page: params[:page])
   end
 
   def new
     @area = Area.new
+  render layout: "area"
    @area_items = current_user.area_new.paginate(page:params[:page]) 
-  end
-
+ 
+end
   def create
     @area = Area.new(area_params)
     if @area.save
@@ -34,16 +35,24 @@ class AreasController < ApplicationController
 
   def edit
      @area = Area.find_by(id: params[:id])
+     respond_to do |format|
+ format.html
+ format.json { render json: @area,status: :ok,location: @area }
   end
+end
 
   def update
    @area = Area.find(params[:id])
+respond_to do |format|
 if @area.update_attributes(area_params)
       flash[:success] = "更新成功"
-      redirect_to root_url
+format.html {redirect_to @area,notice: 'area was successfully updated'}
+format.json
     else
-      render 'edit'
-    end
+format.html{render :edit}
+format.json {render json: @area.errors.full_messages.join(','),status: :error}
+end  
+  end
   end
 
   def destroy

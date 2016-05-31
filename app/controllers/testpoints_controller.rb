@@ -24,7 +24,7 @@ end
    #if correct_user?
    #   @micropost  = current_user.microposts.build
     #  @feed_items = current_user.feed.paginate(page: params[:page])
-     @testpoint = current_user.testpoints.find_by(id: params[:id])
+     @testpoint = Testpoint.find_by(id: params[:id])
     #@testpoints = current_user.testpoints.paginate(page: params[:page])
      # @feed_testpoint_items = current_user.feed_testpoint.paginate(page: params[:page])
     #end

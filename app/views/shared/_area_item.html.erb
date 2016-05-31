@@ -1,13 +1,11 @@
  <li id="<%= area_item.id %>">
-    <span class="user">
-      <!--%= link_to area_item.name, area_item %-->
-    </span>
-    <span class="content"><%=link_to area_item.name,edit_area_path(area_item) %>
-<%= link_to "查看案例",area_item%>    
-<!--% if current_user.admin?%-->
+    <span class="content"><%= link_to area_item.name,area_item %>
+<%=link_to "编辑",edit_area_path(area_item),remote: true,data: {type: 'json'},:class => 'btn btn-primary btn-xs editProductLink'%>
+<% if current_user.admin?%>
 <%= link_to "删除", area_item, method: :delete,
                                      data: { confirm: "确定删除模块?" },
-                                     title: area_item.name %>
-<!--% end %-->
+                                     title: area_item.name,
+                                      :class => 'btn btn-primary btn-xs'%>
+<% end %>
     </span>
 </li>

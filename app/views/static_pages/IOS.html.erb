@@ -1,1 +1,29 @@
 <h1>IOS</h1>
+ <a id="modal-609925" href="#modal-container-609925" role="button" class="btn" data-toggle="modal">添加案例</a>
+			
+			<div id="modal-container-609925" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">
+					添加案例
+					</h3>
+				</div>
+				<div class="modal-body">
+					<p>
+						显示信息
+<%= form_for (@testpoint) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+<%= f.label :测试点 %>
+<%= f.text_area :point, placeholder: "填写测试目的..." %>
+<%= f.label :测试步骤 %>
+<%= f.text_area :step %>
+<%= f.label :案例等级 %>
+<%= f.select :level, Testpoint::LEVELS, :prompt => "Select a payment method" %>
+<%= collection_select(:testpoint,:area_id,Area.all,:id,:name)%>
+<% end %>
+					</p>
+				</div>
+				<div class="modal-footer">
+					 <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button> <button class="btn btn-primary">保存设置</button>
+				</div>
+			</div>
