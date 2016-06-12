@@ -23,11 +23,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+
+ # Tell the UserMailer to send a welcome email after save
+       UserMailer.welcome_email(@user).deliver
       sign_in @user
-      flash[:success] = "#{@user.name},欢迎你!"
+    flash[:success] = "#{@user.name},欢迎你!"
       redirect_to @user
+ 
     else
-      render 'new'
+        render 'new'
     end
   end
 
